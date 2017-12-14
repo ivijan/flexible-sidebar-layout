@@ -1,3 +1,17 @@
-<p>
-  flexible-sidebar-layout works!
-</p>
+<div class="flex-layout-wrapper flex-layout-left flex-layout-collapsible">
+  <div class="flex-layout-sidebar">
+    <div class="flex-layout-sidebar-header">
+      <a href="#" class="flex-layout-sidebar-header-btn" (click)="toggleSidebar($event)"></a>
+    </div>
+    <div class="flex-layout-sidebar-content">
+      <ng-content select=".page-sidebar"></ng-content>
+    </div>
+    <div class="flex-layout-sidebar-footer">
+      <a href="#" class="flex-layout-sidebar-footer-btn" (click)="toggleCollapse($event)"></a>
+    </div>
+  </div>
+  <div class="flex-layout-content">
+    <div class="flex-layout-content-overlay"></div>
+    <ng-content select=".page-wrapper"></ng-content>
+  </div>
+</div>

@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
-import { FlexibleSidebarLayoutComponent } from './flexible-sidebar-layout/flexible-sidebar-layout.component';
-
+import { FlexibleSidebarLayoutModule } from './flexible-sidebar-layout/flexible-sidebar-layout.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FlexibleSidebarLayoutComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    AngularFontAwesomeModule,
+    BrowserModule,
+    FlexibleSidebarLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
