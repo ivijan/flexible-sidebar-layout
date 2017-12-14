@@ -117,13 +117,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "pp",
+      "fsl",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "pp",
+      "fsl",
       "kebab-case"
     ],
     "use-input-property-decorator": true,
