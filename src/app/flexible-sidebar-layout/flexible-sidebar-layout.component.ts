@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fsl-flexible-sidebar-layout',
+  selector: 'app-flexible-sidebar-layout',
   templateUrl: './flexible-sidebar-layout.component.html',
   styleUrls: ['./flexible-sidebar-layout.component.scss']
 })
@@ -12,4 +12,18 @@ export class FlexibleSidebarLayoutComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggleSidebar(event) {
+    event.preventDefault();
+    this.toggle('flex-layout-closed');
+  }
+
+  toggleCollapse(event) {
+    event.preventDefault();
+    this.toggle('flex-layout-uncollapse');
+  }
+
+  toggle(toggleClass) {
+    const flexRoot = document.getElementsByClassName('flex-layout-wrapper') as HTMLCollection;
+    flexRoot[0].classList.toggle(toggleClass);
+  }
 }
