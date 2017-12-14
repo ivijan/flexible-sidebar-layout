@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-flexible-sidebar-layout',
   templateUrl: './flexible-sidebar-layout.component.html',
-  styleUrls: ['./flexible-sidebar-layout.component.scss']
+  styleUrls: ['./flexible-sidebar-layout.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FlexibleSidebarLayoutComponent implements OnInit {
 
