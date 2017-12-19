@@ -21,7 +21,6 @@ $flex-button-height: $flex-button-padding * 2;
   z-index: 1;
   box-shadow: 0 0 2px rgba(111, 124, 145, 0.58);
   transition: width 0.3s;
-  transform: translateZ(0);
   @media (max-width: $flex-media-breakpoint-m) {
     width: $flex-sidebarCollapsed-width;
     .flex-layout-uncollapse>& {
@@ -84,8 +83,7 @@ $flex-button-height: $flex-button-padding * 2;
   display: inline-block;
   position: relative;
   vertical-align: top;
-  transition: transform 0.5s;
-  transform: translateZ(0);
+  transition: transform 0.3s, width 0.3s;
   .flex-layout-left>& {
     transform: translateX($flex-sidebar-width);
   }
