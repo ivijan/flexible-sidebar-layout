@@ -1,6 +1,6 @@
 //variables
 $flex-sidebar-width: 300px;
-$flex-sidebarCollapsed-width: 56px;
+$flex-sidebarCollapsed-width: 60px;
 $flex-media-breakpoint-m: 1440px;
 $flex-media-breakpoint-s: 1024px;
 $flex-button-padding: 15px;
@@ -20,112 +20,60 @@ $flex-button-height: $flex-button-padding * 2;
   vertical-align: top;
   z-index: 1;
   box-shadow: 0 0 2px rgba(111, 124, 145, 0.58);
-  transition: transform 0.5s;
-  @media (max-width: $flex-media-breakpoint-s) {
-    &:not(.flex-layout-closed) {
-      transition: width 0.5s, visibility 0s;
-    }
-    .flex-layout-closed>& {
-      visibility: hidden;
-      width: 0;
-      transition: width 0.5s, visibility 0.5s 0.5s;
+  transition: width 0.3s;
+  transform: translateZ(0);
+  @media (max-width: $flex-media-breakpoint-m) {
+    width: $flex-sidebarCollapsed-width;
+    .flex-layout-uncollapse>& {
+      width: $flex-sidebar-width;
     }
   }
   @media (max-width: $flex-media-breakpoint-m) and (min-width: $flex-media-breakpoint-s + 1px) {
-    .flex-layout-collapsible:not(.flex-layout-uncollapse)>& {
-      width: $flex-sidebarCollapsed-width;
-      &:hover {
-        width: $flex-sidebar-width;
-        transition: width 0.5s;
-      }
-    }
-    .flex-layout-uncollapse>& {
+    &:hover {
       width: $flex-sidebar-width;
     }
   }
 }
 
-.flex-layout-sidebar-header {
-  text-align: right;
-  background-color: #fff;
-  width: 100%;
-  .flex-layout-closed & {
-    visibility: hidden;
-  }
-}
-
+//sidebar content
 .flex-layout-sidebar-content {
   overflow: hidden;
   height: 100%;
-  @media (max-width: $flex-media-breakpoint-m) and (min-width: $flex-media-breakpoint-s + 1px) {
+  @media (max-width: $flex-media-breakpoint-m) {
     height: calc(100% - #{$flex-button-height});
   }
 }
 
-.flex-layout-sidebar-header,
-.flex-layout-header-button {
+// sidebar footer
+.flex-layout-sidebar-footer {
   display: none;
-}
-
-@media (max-width: $flex-media-breakpoint-s) {
-  .flex-layout-sidebar-header {
-    display: inline-block;
-  }
-  .flex-layout-header-button {
-    .flex-layout-closed & {
-      display: inline-block;
-    }
+  box-shadow: 0 0 2px rgba(111, 124, 145, 0.58);
+  @media (max-width: $flex-media-breakpoint-m) {
+    display: block;
   }
 }
 
-.flex-layout-sidebar-header-btn,
+//sidebar footer btn
 .flex-layout-sidebar-footer-btn {
-  display: inline-block;
-  box-sizing: border-box;
-}
-
-.flex-layout-sidebar-header-btn,
-.flex-layout-sidebar-footer-btn,
-.flex-layout-header-button {
+  width: 100%;
   height: $flex-button-height;
+  display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   line-height: $flex-button-height;
   text-decoration: none;
   color: #000;
   padding: 0 $flex-button-padding;
-}
-
-.flex-layout-sidebar-header-btn {
-  width: 100%;
-  text-align: center;
-  &:before {
-    content: "\f00d";
+  box-sizing: border-box;
+  .flex-layout-left>.flex-layout-sidebar & {
+    text-align: right;
+    &:before {
+      content: "\f054";
+    }
   }
-}
-
-.flex-layout-header-button {
-  &:before {
-    content: "\f0c9";
-  }
-}
-
-.flex-layout-sidebar-footer-btn {
-  width: 100%;
-  text-align: right;
-  &:before {
-    content: "\f054";
-  }
-  .flex-layout-uncollapse & {
+  .flex-layout-uncollapse.flex-layout-left>.flex-layout-sidebar & {
     &:before {
       content: "\f053";
     }
-  }
-}
-
-.flex-layout-sidebar-footer {
-  display: none;
-  @media (max-width: $flex-media-breakpoint-m) and (min-width: $flex-media-breakpoint-s + 1px) {
-    display: block;
   }
 }
 
@@ -137,22 +85,17 @@ $flex-button-height: $flex-button-padding * 2;
   position: relative;
   vertical-align: top;
   transition: transform 0.5s;
+  transform: translateZ(0);
   .flex-layout-left>& {
     transform: translateX($flex-sidebar-width);
   }
   @media (max-width: $flex-media-breakpoint-m) {
-    .flex-layout-closed>& {
-      width: 100%;
-      transform: translateX(0);
+    width: calc(100% - #{$flex-sidebarCollapsed-width});
+    .flex-layout-left>& {
+      transform: translateX($flex-sidebarCollapsed-width);
     }
   }
   @media (max-width: $flex-media-breakpoint-m) and (min-width: $flex-media-breakpoint-s + 1px) {
-    .flex-layout-collapsible:not(.flex-layout-uncollapse)>& {
-      width: calc(100% - #{$flex-sidebarCollapsed-width});
-    }
-    .flex-layout-collapsible.flex-layout-left:not(.flex-layout-uncollapse)>& {
-      transform: translateX($flex-sidebarCollapsed-width);
-    }
     .flex-layout-uncollapse>& {
       width: calc(100% - #{$flex-sidebar-width});
     }

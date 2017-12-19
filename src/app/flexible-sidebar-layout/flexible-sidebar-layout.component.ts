@@ -13,11 +13,6 @@ export class FlexibleSidebarLayoutComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleSidebar(event) {
-    event.preventDefault();
-    this.toggle('flex-layout-closed');
-  }
-
   toggleCollapse(event) {
     event.preventDefault();
     this.toggle('flex-layout-uncollapse');

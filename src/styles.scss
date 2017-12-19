@@ -12,7 +12,7 @@ body {
   width: 100%;
   min-width: 300px;
   height: 100%;
-  background: red;
+  background: #fff;
   padding: 15px;
 }
 
@@ -27,4 +27,19 @@ body {
 
 .page-content {
   padding: 15px;
+}
+
+.page-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    padding: 15px 10px;
+    cursor: pointer;
+  }
+  .fa {
+    width: 20px;
+    display: inline-block;
+    margin-right: 15px;
+  }
 }
